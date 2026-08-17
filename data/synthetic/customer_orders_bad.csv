@@ -1,0 +1,6 @@
+order_id,customer_id,first_name,last_name,state,order_date,order_status,total_amount
+1,1,Emma,Johnson,WA,2026-08-13 17:50:01.988508,COMPLETED,-89.99
+2,2,Liam,Smith,CA,2026-08-13 17:50:01.988508,COMPLETED,129.99
+3,3,Olivia,Brown,TX,2026-08-13 17:50:01.988508,PENDING,149.0
+4,4,Noah,Davis,NY,2026-08-13 17:50:01.988508,COMPLETED,59.99
+5,5,Ava,Wilson,IL,2026-08-13 17:50:01.988508,CANCELLED,49.99

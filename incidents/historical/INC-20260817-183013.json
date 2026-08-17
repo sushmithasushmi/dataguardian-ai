@@ -1,0 +1,12 @@
+{
+    "incident_id": "INC-20260817-183013",
+    "timestamp_utc": "2026-08-17T18:30:13.957543+00:00",
+    "dataset": "data\\synthetic\\customer_orders_bad.csv",
+    "status": "OPEN",
+    "severity": "HIGH",
+    "category": "DATA_QUALITY",
+    "failed_rule": "ExpectColumnValuesToBeBetween",
+    "evidence": {
+        "success": false
+    }
+}
