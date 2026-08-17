@@ -1,0 +1,84 @@
+{
+    "incident_id": "PIPELINE-RUN-11",
+    "generated_at_utc": "2026-08-17T19:01:14.357008+00:00",
+    "category": "PIPELINE_EXECUTION",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "pipeline_run": {
+        "run_id": 11,
+        "pipeline_name": "postgres_raw_ingestion",
+        "run_status": "FAILED",
+        "started_at": "2026-08-17T11:57:55.073993",
+        "completed_at": "2026-08-17T11:57:55.225893",
+        "source_name": "PostgreSQL",
+        "target_name": "data/raw",
+        "rows_processed": 15,
+        "duration_seconds": 0.152,
+        "error_message": "Execution failed on sql 'SELECT * FROM missing_table': (psycopg2.errors.UndefinedTable) relation \"missing_table\" does not exist\nLINE 1: SELECT * FROM missing_table\n                      ^\n\n[SQL: SELECT * FROM missing_table]\n(Background on this error at: https://sqlalche.me/e/20/f405)"
+    },
+    "events": [
+        {
+            "event_id": 70,
+            "event_type": "PIPELINE_START",
+            "table_name": null,
+            "event_message": "PostgreSQL raw ingestion started",
+            "event_timestamp": "2026-08-17T18:57:55.163343"
+        },
+        {
+            "event_id": 71,
+            "event_type": "TABLE_START",
+            "table_name": "customers",
+            "event_message": "Started extracting table customers",
+            "event_timestamp": "2026-08-17T18:57:55.167154"
+        },
+        {
+            "event_id": 72,
+            "event_type": "TABLE_EXTRACTED",
+            "table_name": "customers",
+            "event_message": "Extracted 5 rows from customers",
+            "event_timestamp": "2026-08-17T18:57:55.190124"
+        },
+        {
+            "event_id": 73,
+            "event_type": "TABLE_START",
+            "table_name": "products",
+            "event_message": "Started extracting table products",
+            "event_timestamp": "2026-08-17T18:57:55.196057"
+        },
+        {
+            "event_id": 74,
+            "event_type": "TABLE_EXTRACTED",
+            "table_name": "products",
+            "event_message": "Extracted 5 rows from products",
+            "event_timestamp": "2026-08-17T18:57:55.204277"
+        },
+        {
+            "event_id": 75,
+            "event_type": "TABLE_START",
+            "table_name": "orders",
+            "event_message": "Started extracting table orders",
+            "event_timestamp": "2026-08-17T18:57:55.207194"
+        },
+        {
+            "event_id": 76,
+            "event_type": "TABLE_EXTRACTED",
+            "table_name": "orders",
+            "event_message": "Extracted 5 rows from orders",
+            "event_timestamp": "2026-08-17T18:57:55.216955"
+        },
+        {
+            "event_id": 77,
+            "event_type": "TABLE_START",
+            "table_name": "missing_table",
+            "event_message": "Started extracting table missing_table",
+            "event_timestamp": "2026-08-17T18:57:55.220078"
+        },
+        {
+            "event_id": 78,
+            "event_type": "PIPELINE_ERROR",
+            "table_name": null,
+            "event_message": "Execution failed on sql 'SELECT * FROM missing_table': (psycopg2.errors.UndefinedTable) relation \"missing_table\" does not exist\nLINE 1: SELECT * FROM missing_table\n                      ^\n\n[SQL: SELECT * FROM missing_table]\n(Background on this error at: https://sqlalche.me/e/20/f405)",
+            "event_timestamp": "2026-08-17T18:57:55.229703"
+        }
+    ]
+}
