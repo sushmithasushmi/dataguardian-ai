@@ -1,0 +1,22 @@
+{
+    "incident_id": "PIPELINE-RUN-11",
+    "root_cause": "PostgreSQL table 'missing_table' does not exist in the source database",
+    "failure_stage": "SOURCE_EXTRACTION",
+    "failed_component": "missing_table",
+    "impact_summary": "Pipeline failed to ingest data due to missing source table",
+    "evidence": [
+        "PostgreSQL returned 'UndefinedTable' error for 'missing_table'",
+        "TABLE_START event exists for 'missing_table' with no corresponding TABLE_EXTRACTED event",
+        "No rows_processed count for 'missing_table'"
+    ],
+    "runbook_used": "source_extraction_failures.md",
+    "runbook_guidance": [
+        "Verify table existence in source database",
+        "Compare configured table name with actual database schema",
+        "Correct table name in ingestion configuration"
+    ],
+    "historical_incident_used": "resolved_pipeline_run_07.json",
+    "historical_similarity_score": 15,
+    "recommended_action": "Validate existence of 'missing_table' in PostgreSQL and correct the ingestion configuration to reference an existing table",
+    "confidence": "HIGH"
+}

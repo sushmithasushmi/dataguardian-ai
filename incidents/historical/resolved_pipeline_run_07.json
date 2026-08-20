@@ -1,0 +1,25 @@
+{
+    "incident_id": "PIPELINE-RUN-07",
+    "category": "PIPELINE_EXECUTION",
+    "status": "RESOLVED",
+    "severity": "HIGH",
+    "pipeline_name": "postgres_raw_ingestion",
+    "failure_stage": "SOURCE_EXTRACTION",
+    "failed_component": "customer_archive",
+    "root_cause": "The ingestion configuration referenced PostgreSQL table 'customer_archive', but the table had been renamed to 'customers_archive'.",
+    "error_message": "psycopg2.errors.UndefinedTable: relation \"customer_archive\" does not exist",
+    "evidence": [
+        "TABLE_START event existed for customer_archive",
+        "No TABLE_EXTRACTED event existed for customer_archive",
+        "PostgreSQL returned UndefinedTable"
+    ],
+    "resolution": {
+        "action_taken": "Updated the ingestion configuration from 'customer_archive' to 'customers_archive'.",
+        "validation": "Confirmed the renamed table existed in PostgreSQL and reran the ingestion pipeline successfully.",
+        "result": "Pipeline completed successfully after configuration correction."
+    },
+    "lessons_learned": [
+        "Validate configured source tables against PostgreSQL metadata before pipeline execution.",
+        "Coordinate schema and table-name changes with downstream pipeline owners."
+    ]
+}
