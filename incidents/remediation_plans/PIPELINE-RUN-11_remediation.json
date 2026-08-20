@@ -1,0 +1,32 @@
+{
+    "incident_id": "PIPELINE-RUN-11",
+    "remediation_summary": "Validate PostgreSQL table existence and correct ingestion configuration",
+    "steps": [
+        {
+            "step_number": 1,
+            "action": "Verify 'missing_table' existence in PostgreSQL using \\d+ or pg_catalog.pg_tables",
+            "purpose": "Confirm table absence in source database",
+            "risk_level": "LOW"
+        },
+        {
+            "step_number": 2,
+            "action": "Audit ingestion configuration for 'missing_table' schema/namespace references",
+            "purpose": "Identify misconfigured table name or schema mismatch",
+            "risk_level": "MEDIUM"
+        },
+        {
+            "step_number": 3,
+            "action": "Update ingestion configuration to reference correct table name/schema",
+            "purpose": "Align pipeline configuration with actual database objects",
+            "risk_level": "HIGH"
+        }
+    ],
+    "requires_human_approval": true,
+    "safe_to_auto_execute": false,
+    "rollback_plan": "Revert ingestion configuration changes and restore previous pipeline state",
+    "validation_after_fix": [
+        "Confirm 'missing_table' exists in PostgreSQL",
+        "Verify pipeline successfully processes data without errors",
+        "Validate TABLE_EXTRACTED events are generated for 'missing_table'"
+    ]
+}

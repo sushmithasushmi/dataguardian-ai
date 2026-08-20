@@ -1,0 +1,31 @@
+{
+    "incident_id": "PIPELINE-RUN-11",
+    "policy_status": "HUMAN_APPROVAL_REQUIRED",
+    "automatic_execution_allowed": false,
+    "blocked_step_count": 1,
+    "step_evaluations": [
+        {
+            "step_number": 1,
+            "action": "Verify 'missing_table' existence in PostgreSQL using \\d+ or pg_catalog.pg_tables",
+            "policy_status": "ALLOWED_FOR_REVIEW",
+            "reason": "No prohibited state-changing operation detected.",
+            "detected_terms": []
+        },
+        {
+            "step_number": 2,
+            "action": "Audit ingestion configuration for 'missing_table' schema/namespace references",
+            "policy_status": "ALLOWED_FOR_REVIEW",
+            "reason": "No prohibited state-changing operation detected.",
+            "detected_terms": []
+        },
+        {
+            "step_number": 3,
+            "action": "Update ingestion configuration to reference correct table name/schema",
+            "policy_status": "BLOCKED",
+            "reason": "Action contains a potentially state-changing operation.",
+            "detected_terms": [
+                "update ingestion configuration"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "incident_id": "PIPELINE-RUN-11",
+    "validation_status": "WARNING",
+    "checks": [
+        {
+            "check": "failed_component",
+            "status": "PASS",
+            "message": "Failed component 'missing_table' is supported by incident evidence."
+        },
+        {
+            "check": "failure_stage",
+            "status": "PASS",
+            "message": "SOURCE_EXTRACTION is supported by SQL extraction evidence."
+        },
+        {
+            "check": "rows_processed",
+            "status": "WARNING",
+            "message": "Incident reports 15 processed rows, but the impact summary does not explicitly reference that value."
+        }
+    ],
+    "evidence_validation": [
+        {
+            "evidence": "PostgreSQL returned 'UndefinedTable' error for 'missing_table'",
+            "status": "PASS",
+            "matching_terms": [
+                "postgresql",
+                "error"
+            ]
+        },
+        {
+            "evidence": "TABLE_START event exists for 'missing_table' with no corresponding TABLE_EXTRACTED event",
+            "status": "PASS",
+            "matching_terms": [
+                "table_start",
+                "table_extracted"
+            ]
+        },
+        {
+            "evidence": "No rows_processed count for 'missing_table'",
+            "status": "WARNING",
+            "matching_terms": []
+        }
+    ]
+}
